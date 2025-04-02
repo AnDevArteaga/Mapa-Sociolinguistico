@@ -64,7 +64,7 @@ export function EditTermForm(
         };
 
         // Enviar datos a la API
-        await updateTermToApi(apiData, term.id);
+        await updateTermToApi(apiData, Number(term.id));
         onUpdate();
         toast("Término actualizado exitosamente", 
             {
@@ -94,7 +94,7 @@ export function EditTermForm(
     };
 
     const handleDeleteTerm = async () => {
-        await deleteTermToApi(term.id);
+        await deleteTermToApi(Number(term.id));
         toast("Término eliminado exitosamente", 
             {
                 icon: <Trash2 className="text-red-400 w-6 h-6" />,
