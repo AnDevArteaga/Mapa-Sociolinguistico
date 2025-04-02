@@ -1,6 +1,5 @@
 import { getData } from "@/utils/termsApi";
 import { Term } from "@/interfaces/Terms.interface";
-import { Terms } from "@/components/terms";
 
 // Commune data structure
 export interface Commune {

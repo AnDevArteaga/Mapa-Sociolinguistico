@@ -15,6 +15,8 @@ export interface Term {
     name: string;
     communeId: string;
 }
+type DataItem = [number, string, string]; // Un elemento del array principal
+type DataArray = DataItem[]; // El array completo
 
 export function Terms() {
     const [selectedCommune, setSelectedCommune] = useState<string | null>(null);
@@ -25,7 +27,7 @@ export function Terms() {
     const fetchTerms = async () => {
         try {
             const response = await fetch("https://edutlasdeveloper.pythonanywhere.com/apim/comunas/palabras"); // Cambia la URL por la correcta
-            const data: any[] = await response.json();
+            const data: DataArray = await response.json();
             console.log(data);
             // Convertir la respuesta a la estructura { id, name, communeId }
             const formattedTerms: Term[] = data.map((item) => ({
